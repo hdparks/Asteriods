@@ -2,10 +2,16 @@ import { EntityManager } from './ecs/entityManager.js'
 import * as Systems from './ecs/systems.js'
 import * as Components from './ecs/components.js'
 import { Broadphase } from './ecs/broadphase.js'
-export { matRotate } from './ecs/utils.js'
+
+/*  VARIABLES  */
+const WIDTH = 300
+const HEIGHT = 300
+
 
 //  Initialize game state
 let canvas = document.getElementById('canvas')
+canvas.width = WIDTH
+canvas.height = HEIGHT
 let ctx = canvas.getContext('2d')
 
 //  Initialize input listener
@@ -21,7 +27,7 @@ document.addEventListener("keyup", e => {
 let entityManager = new EntityManager()
 
 //  Start up a broadphase controller
-let broadphase = new Broadphase(200,10)
+let broadphase = new Broadphase(WIDTH,10)
 
 //  Start up the game systems
 let systems = [

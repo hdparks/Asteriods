@@ -31,25 +31,23 @@ export class Broadphase{
     this.root = new Quad()
   }
 
-  addEntity = function(pt, entity){
-    let current = this.root
-    let cx = this.dim / 2
-    let cy = this.dim / 2
-    let cDim = this.dim / 2
-
-    while (!current.entitySet) {
-      //  Figure out which child pt belongs in
-      cDim /= 2;
-      let out = 0;
-
-      if (pt.x < cx){ cx -= cDim; } else { cx += cDim; out += 1; }
-      if (pt.y < cy){ cy -= cDim; } else { cy += cDim; out += 2; }
-
-      current = current['q'+out]
+  addEntity = function(e,quad = this.root, cx=0, cy=0, hw=this.dim/2){
+    if (quad.entitySet){
+      quad.entitySet.add(e)
+    } else {
+      if (e.Position.x - e.AABB.hw < cx + hw && e.Position.y - e.AABB.hh < cy + hw){
+        this.addEntity(e,quad.q0,cx,cy,hw/2)
+      }
+      if (e.Position.x + e.AABB.hw > cx + hw && e.Position.y - e.AABB.hh < cy + hw){
+        this.addEntity(e,quad.q1, cx + hw, cy, hw/2)
+      }
+      if (e.Position.x - e.AABB.hw < cx + hw && e.Position.y + e.AABB.hh > cy + hw){
+        this.addEntity(e,quad.q2, cx, cy + hw, hw/2)
+      }
+      if (e.Position.x + e.AABB.hw > cx + hw && e.Position.y + e.AABB.hh > cy + hw){
+        this.addEntity(e,quad.q3, cx + hw, cy + hw, hw/2)
+      }
     }
-
-    //  Add entity to set
-    current.entitySet.add(entity)
 
   }
 
