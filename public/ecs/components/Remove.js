@@ -1,1 +1,1 @@
-export function Remove(){}
+define(() => function Remove(){})

@@ -1,5 +1,5 @@
-export function UpdateBroadphaseSystem(broadphase){
+define(() => function UpdateBroadphaseSystem(broadphase){
   this.Run = function(){
     broadphase.updateQuad()
   }
-}
+})

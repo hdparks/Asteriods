@@ -1,3 +1,1 @@
-export function InputListener(){
-  
-}
+define(() => function InputListener(){})

@@ -1,3 +1,3 @@
-export function Polyrender(pts){
+define(() => function Polyrender(pts){
   this.pts = pts
-}
+})

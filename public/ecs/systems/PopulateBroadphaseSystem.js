@@ -1,13 +1,12 @@
-import { AABB, Position, Velocity } from '../components.js'
+define(["../components"],function(Components){
+  return function PopulateBroadphaseSystem(entityManager, broadphase){
 
-export function PopulateBroadphaseSystem(entityManager, broadphase){
+    let entities = entityManager.registerQueryTemplate(new Set([Components.AABB.name, Components.Position.name, Components.Velocity.name]))
 
-  let entities = entityManager.registerQueryTemplate(new Set([AABB.name, Position.name, Velocity.name]))
-
-  this.Run = function(){
-    entities.forEach( e => {
-      broadphase.addEntity(e)
-    });
-
+    this.Run = function(){
+      entities.forEach( e => {
+        broadphase.addEntity(e)
+      });
+    }
   }
-}
+})

@@ -1,14 +1,19 @@
-export { BlitSystem } from './systems/BlitSystem.js'
-export { CalculateCollisionsSystem } from './systems/CalculateCollisionsSystem.js'
-export { ClearBroadphaseSystem } from './systems/ClearBroadphaseSystem.js'
-export { DrawBroadphaseSystem } from './systems/DrawBroadphaseSystem.js'
-export { LaserCannonInputSystem } from './systems/LaserCannonInputSystem.js'
-export { LaserCooldownSystem } from './systems/LaserCooldownSystem.js'
-export { LaserSpawnSystem } from './systems/LaserSpawnSystem.js'
-export { MovementInputSystem } from './systems/MovementInputSystem.js'
-export { MovementSystem } from './systems/MovementSystem.js'
-export { PolyrenderSystem } from './systems/PolyrenderSystem.js'
-export { PopulateBroadphaseSystem } from './systems/PopulateBroadphaseSystem.js'
-export { RemoveAtBoundsSystem } from './systems/RemoveAtBoundsSystem.js'
-export { RemoveEntitySystem } from './systems/RemoveEntitySystem.js'
-export { UpdateBroadphaseSystem } from './systems/UpdateBroadphaseSystem.js'
+define(['./systems/LaserCooldownSystem', './systems/RemoveEntitySystem', './systems/MovementInputSystem', './systems/CalculateCollisionsSystem', './systems/LaserSpawnSystem', './systems/RemoveAtBoundsSystem', './systems/ClearBroadphaseSystem', './systems/UpdateBroadphaseSystem', './systems/MovementSystem', './systems/DrawBroadphaseSystem', './systems/PopulateBroadphaseSystem', './systems/BlitSystem', './systems/PolyrenderSystem', './systems/LaserCannonInputSystem'],
+    function(LaserCooldownSystem, RemoveEntitySystem, MovementInputSystem, CalculateCollisionsSystem, LaserSpawnSystem, RemoveAtBoundsSystem, ClearBroadphaseSystem, UpdateBroadphaseSystem, MovementSystem, DrawBroadphaseSystem, PopulateBroadphaseSystem, BlitSystem, PolyrenderSystem, LaserCannonInputSystem){
+        return {
+            LaserCooldownSystem:LaserCooldownSystem,
+            RemoveEntitySystem:RemoveEntitySystem,
+            MovementInputSystem:MovementInputSystem,
+            CalculateCollisionsSystem:CalculateCollisionsSystem,
+            LaserSpawnSystem:LaserSpawnSystem,
+            RemoveAtBoundsSystem:RemoveAtBoundsSystem,
+            ClearBroadphaseSystem:ClearBroadphaseSystem,
+            UpdateBroadphaseSystem:UpdateBroadphaseSystem,
+            MovementSystem:MovementSystem,
+            DrawBroadphaseSystem:DrawBroadphaseSystem,
+            PopulateBroadphaseSystem:PopulateBroadphaseSystem,
+            BlitSystem:BlitSystem,
+            PolyrenderSystem:PolyrenderSystem,
+            LaserCannonInputSystem:LaserCannonInputSystem,
+        }
+    })

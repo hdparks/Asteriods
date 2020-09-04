@@ -1,3 +1,3 @@
-export function RecievesOnCollision(components){
+define(() => function RecievesOnCollision(components){
   this.components = components
-}
+})

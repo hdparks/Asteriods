@@ -1,16 +1,15 @@
-import {InputListener} from '../components/InputListener.js'
-import {LaserCannon} from '../components/LaserCannon.js'
+define(['../components'],function(Components){
+  return function LaserCannonInputSystem(entityManager, inputs){
 
-export function LaserCannonInputSystem(entityManager, inputs){
+    let entities = entityManager.registerQueryTemplate(new Set([Components.InputListener.name, Components.LaserCannon.name]))
 
-  let entities = entityManager.registerQueryTemplate(new Set([InputListener.name, LaserCannon.name]))
+    this.Run = function(){
 
-  this.Run = function(){
-
-    entities.forEach( e => {
-      if ( inputs[32] && e.LaserCannon.cooldown === 0 ){
-        e.LaserCannon.fire = true;
-      }
-    });
+      entities.forEach( e => {
+        if ( inputs[32] && e.LaserCannon.cooldown === 0 ){
+          e.LaserCannon.fire = true;
+        }
+      });
+    }
   }
-}
+})

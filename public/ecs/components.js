@@ -1,11 +1,16 @@
-export { AABB } from './components/AABB.js'
-export { Blit } from './components/Blit.js'
-export { Heading } from './components/Heading.js'
-export { InputListener } from './components/InputListener.js'
-export { LaserCannon } from './components/LaserCannon.js'
-export { Polyrender } from './components/Polyrender.js'
-export { Position } from './components/Position.js'
-export { RecievesOnCollision } from './components/RecievesOnCollision.js'
-export { Remove } from './components/Remove.js'
-export { RemoveAtBounds } from './components/RemoveAtBounds.js'
-export { Velocity } from './components/Velocity.js'
+define(['./components/Remove', './components/RemoveAtBounds', './components/AABB', './components/InputListener', './components/Polyrender', './components/RecievesOnCollision', './components/Velocity', './components/LaserCannon', './components/Blit', './components/Heading', './components/Position'],
+    function(Remove, RemoveAtBounds, AABB, InputListener, Polyrender, RecievesOnCollision, Velocity, LaserCannon, Blit, Heading, Position){
+        return {
+            Remove:Remove,
+            RemoveAtBounds:RemoveAtBounds,
+            AABB:AABB,
+            InputListener:InputListener,
+            Polyrender:Polyrender,
+            RecievesOnCollision:RecievesOnCollision,
+            Velocity:Velocity,
+            LaserCannon:LaserCannon,
+            Blit:Blit,
+            Heading:Heading,
+            Position:Position,
+        }
+    })

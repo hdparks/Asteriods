@@ -1,15 +1,14 @@
-import {Position} from '../components/Position.js'
-import {Velocity} from '../components/Velocity.js'
+define(["../components"],function(Components){
+  return function MovementSystem(entityManager){
 
-export function MovementSystem(entityManager){
+    let entities = entityManager.registerQueryTemplate(new Set([Components.Position.name, Components.Velocity.name]))
 
-  let entities = entityManager.registerQueryTemplate(new Set([Position.name, Velocity.name]))
-
-  this.Run = function(){
-    //  Alter the position component according to the velocity component
-    entities.forEach( e => {
-      e.Position.x += e.Velocity.vx;
-      e.Position.y += e.Velocity.vy;
-    });
+    this.Run = function(){
+      //  Alter the position component according to the velocity component
+      entities.forEach( e => {
+        e.Position.x += e.Velocity.vx;
+        e.Position.y += e.Velocity.vy;
+      });
+    }
   }
-}
+})

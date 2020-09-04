@@ -1,1 +1,1 @@
-export function RemoveAtBounds(){}
+define(() => function RemoveAtBounds(){})

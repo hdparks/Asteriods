@@ -1,5 +1,5 @@
-export function ClearBroadphaseSystem(broadphase){
+define(() => function ClearBroadphaseSystem(broadphase){
   this.Run = function(){
     broadphase.clear()
   }
-}
+})

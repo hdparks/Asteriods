@@ -1,4 +1,4 @@
-export function DrawBroadphaseSystem(broadphase, ctx){
+define(() => function DrawBroadphaseSystem(broadphase, ctx){
   function draw(quad,cx,cy,hw){
     if (quad.entitySet){
       ctx.strokeRect(cx-hw,cy-hw,2*hw,2*hw)
@@ -15,4 +15,4 @@ export function DrawBroadphaseSystem(broadphase, ctx){
     let hw = broadphase.dim/2
     draw(broadphase.root, hw, hw, hw)
   }
-}
+})
