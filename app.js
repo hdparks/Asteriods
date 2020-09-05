@@ -1,21 +1,29 @@
-var express = require('express');
-var app = express();
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+var requirejs = require('requirejs')
 
-app.use(express.static("public"));
-app.use("/scripts/",express.static(__dirname + "/node_modules"));
+requirejs(['express','http','socket.io','./public/ecs/entityManager'],
+  function( express , http , socketio , EntityManager ){
+    var app = express();
+    var http = http.createServer(app);
+    var io = socketio(http);
 
-io.on('connection', (socket)=>{
-  console.log("User Connected!");
+    let em = new EntityManager()
+    console.log(em)
 
-  socket.on("disconnect",()=>{
-    console.log("user disconnected");
-  });
-})
+    app.use(express.static("public"));
+    app.use("/scripts/",express.static(__dirname + "/node_modules"));
+
+    io.on('connection', (socket)=>{
+      console.log("User Connected!");
+
+      socket.on("disconnect",()=>{
+        console.log("user disconnected");
+      });
+    })
 
 
-const port = 80
-http.listen(port, ()=> {
-  console.log(`Listening on port ${port}`);
-})
+    const port = 80
+    http.listen(port, ()=> {
+      console.log(`Listening on port ${port}`);
+    })
+
+  })
